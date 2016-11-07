@@ -5,6 +5,10 @@ Agence principale = Machine 1 **Port 17**
 Agence principale 2 = Machine 2 **Port 2**
 Agence secondaire = Machine 3 **Port 15**
 
+Port 7 → Siège (tous les VLAN du siège)  
+Port 8 → Agence Principale (idem)
+Port 9 → Agence Principale 2
+Port 10 → Agence Secondaire
 
 ## Initilisation
 
@@ -20,6 +24,11 @@ Du coup on va créer un Vlan taggé sur les ports **15 et 17** pour les Vlans (c
 
 - Vlan 2 : Poste utilisateur → 10.1.2.0
 
+    PC-Site4-1 : 10.1.2.10
+    PC-Site4-2 : 10.1.2.11
+
+    Sonic X2 : 10.1.2.1
+
 ```
 $ vconfig add em1 2  
 $ sudo ifconfig em1.2 up
@@ -27,10 +36,14 @@ $ sudo ifconfig em1.2 up
 
 - Vlan 3 : Serveur de donnée → 10.1.1.0
 
+    Sonic X3 : 10.1.1.1
+
         $ vconfig em1 add 3  
         $ sudo ifconfig em1.3 up
+    
+    PLD-MARS-Debian.web 10.1.1.10
 
-- Vlan 4 : DHCP
+- Vlan 4 : DHCP → 10.1.3.1
 
 ## Agence principale *17* → 10.2.0.0 255.255.0.0
 
@@ -78,6 +91,14 @@ $ sudo ifconfig em1.2 up
     DAB-Site2-2 : 10.3.3.11
 
 
+- Vlan 13 : interco  switch port 22 non taggé → Vyos Agence Principale (machine 1 port 17 taggé IP 10.0.9.6)
+
+- Vlan 14 : interco switch port 23 non taggé → Vyos Agence secondaire (machine 1 port 17 taggé IP 10.0.9.133)
+
+- Vlan 15 : interco switch port 24 non taggé → Vyos Agence Principale 2 (machine 2 port 2 taggé IP 10.00.9.113)
+
+- Sonic vers interco port X5 IP 10.0.9.98
+
 ## Config DAB
 
 ```
@@ -99,7 +120,7 @@ iface eth0 inet static
     adress 10.3.1.10
     netmask 255.255.255.0
     gateway 10.3.1.1
-
+```
     
 
 Une fois les Vlan créé et les cartes virtuelles créé, on configure les VM pour qu'ils utilisent les cartes virtuelles (connexion par pont) 
@@ -108,3 +129,6 @@ On affecte des adresses IP à chaque VM en fonction des IP que l'on a défini
 
 On configure l'ip du vayos comme passerelle des periphérques des sous réseau et on configure le vayos pour que pour une carte réseau virtuel son adresse
 soit l'adresse mise dans la passerelle
+
+Problème, on peut bien communiquer sur deux vlan differents avec des vm relié au même Vyos mais on ne peut pas communiquer avec les autres sièges pour l'instant
+ 
