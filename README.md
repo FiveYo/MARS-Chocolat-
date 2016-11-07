@@ -77,8 +77,28 @@ $ sudo ifconfig em1.2 up
     DAB-Site2-1 : 10.3.3.10
     DAB-Site2-2 : 10.3.3.11
 
-        sudo ifconfig eth0 10.3.3.10 netmask 255.255.255.0  
-        route add default gw 10.3.3.1
+
+## Config DAB
+
+```
+vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+BOOTPROTO=none
+NETMASK=
+IPADDR=
+NETWORK=
+GATEWAY=
+```
+
+## Config Serveur
+
+```
+vi /etc/network/interfaces
+
+iface eth0 inet static
+    adress 10.3.1.10
+    netmask 255.255.255.0
+    gateway 10.3.1.1
 
     
 
