@@ -32,36 +32,46 @@ Du coup on va créer un Vlan taggé sur les ports **15 et 17** pour les Vlans (c
 
 ## Agence principale *17* → 10.2.0.0 255.255.0.0
 
-- Vlan 5 : Poste utilisateur → 10.2.2.0
-    PC-Site1-1 : 10.2.2.10
+- Vlan 5 : Poste utilisateur → 10.2.2.0  
+
+    PC-Site1-1 : 10.2.2.10  
     PC-Site2-2 : 10.2.2.11
 
-- Vlan 6 : Serveur → 10.2.1.0
+- Vlan 6 : Serveur → 10.2.1.0   
+
     PLD-Mars-Debian.web-1 : 10.2.1.10
 
-- Vlan 7 : Automate → 10.2.3.0
-    DAB-Site1-1 : 10.2.3.10
+- Vlan 7 : Automate → 10.2.3.0  
+
+    DAB-Site1-1 : 10.2.3.10  
     DAB-Site1-2 : 10.2.3.11
 
 ## Agence secondaire *15* → 10.4.0.0 255.255.0.0
 
-- Vlan 8 : Poste utilisateur → 10.4.2.0
+- Vlan 8 : Poste utilisateur → 10.4.2.0  
 
-- Vlan 9 : Automate → 10.4.3.0
-    DAB-Site3-1 : 10.4.3.10
-    DAB-Site3-2 : 10.4.3.11
+    PC-Site3-1 : 10.4.2.10  
+    PC-Site3-2 : 10.4.2.11  
+
+- Vlan 9 : Automate → 10.4.3.0  
+
+    DAB-Site3-1 : 10.4.3.10  
+    DAB-Site3-2 : 10.4.3.11  
 
 
 ## Agence principale 2 *2* → 10.3.0.0 255.255.0.0
 
-- Vlan 10 : Poste utilisateur → 10.3.2.0
-    PC-Site2-1 : 10.3.2.10
+- Vlan 10 : Poste utilisateur → 10.3.2.0  
+
+    PC-Site2-1 : 10.3.2.10  
     PC-Site2-2 : 10.3.2.11
 
-- Vlan 11 : Serveur → 10.3.1.0
+- Vlan 11 : Serveur → 10.3.1.0  
+
     PLD-Mars-Debian.web-2 : 10.3.1.10
 
-- Vlan 12 : Automates → 10.3.3.0
+- Vlan 12 : Automates → 10.3.3.0  
+
     DAB-Site2-1 : 10.3.3.10
     DAB-Site2-2 : 10.3.3.11
 
