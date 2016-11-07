@@ -20,13 +20,13 @@ Du coup on va créer un Vlan taggé sur les ports **15 et 17** pour les Vlans (c
 
 - Vlan 2 : Poste utilisateur → 10.1.2.0
 
-    $ vconfig add em1 2
-    $ sudo ifconfig em1.2 up
+        $ vconfig add em1 2  
+        $ sudo ifconfig em1.2 up
 
 - Vlan 3 : Serveur de donnée → 10.1.1.0
 
-    $ vconfig em1 add 3
-    $ sudo ifconfig em1.3 up
+        $ vconfig em1 add 3  
+        $ sudo ifconfig em1.3 up
 
 - Vlan 4 : DHCP
 
@@ -75,7 +75,7 @@ Du coup on va créer un Vlan taggé sur les ports **15 et 17** pour les Vlans (c
     DAB-Site2-1 : 10.3.3.10
     DAB-Site2-2 : 10.3.3.11
 
-        sudo ifconfig eth0 10.3.3.10 netmask 255.255.255.0
+        sudo ifconfig eth0 10.3.3.10 netmask 255.255.255.0  
         route add default gw 10.3.3.1
 
     
