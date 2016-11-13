@@ -29,6 +29,8 @@ Du coup on va créer un Vlan taggé sur les ports **15 et 17** pour les Vlans (c
 
     Sonic X2 : 10.1.2.1
 
+    centreon 1 10.1.1.11
+
 ```
 $ vconfig add em1 2  
 $ sudo ifconfig em1.2 up
@@ -91,13 +93,13 @@ $ sudo ifconfig em1.2 up
     DAB-Site2-2 : 10.3.3.11
 
 
-- Vlan 13 : interco  switch port 22 non taggé → Vyos Agence Principale (machine 1 port 17 taggé IP 10.0.9.6)
+- Vlan 13 : interco port 1 ← switch port 22 non taggé → Vyos Agence Principale (machine 1 port 1,2 taggé IP 10.0.9.6)
 
-- Vlan 14 : interco switch port 23 non taggé → Vyos Agence secondaire (machine 1 port 17 taggé IP 10.0.9.133)
+- Vlan 14 : interco port 17 ← switch port 23 non taggé → Vyos Agence secondaire (machine 1 port 17 taggé IP 10.0.9.133)
 
-- Vlan 15 : interco switch port 24 non taggé → Vyos Agence Principale 2 (machine 2 port 2 taggé IP 10.00.9.113)
+- Vlan 15 : interco port 16 ← switch port 24 non taggé → Vyos Agence Principale 2 (machine 2 port 2 taggé IP 10.00.9.113)
 
-- Sonic vers interco port X5 IP 10.0.9.98
+- interco port 13,14 ← routeur port X5 IP 10.0.9.98 → Siège Machine 4 
 
 ## Config DAB
 
